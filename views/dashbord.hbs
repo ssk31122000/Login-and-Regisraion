@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <h4>IITGN Degree Planner</h4>
+        <ul>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Login Project</h1>
+            <p class="lead">This is a simple Login and Registration Project, created Using Node Js and MySQL Database </p>
+            <hr class="my-4">
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-header">
+                        Add Items
+                    </div>
+                    <ul id="list1" class="list-group list-group-flush"></ul>
+                    <div class="card-body">
+                        <input type="text" id="candidate1" /> 
+                        <button onclick="addItem('list1','candidate1')" class="btn btn-success"> 
+                        Add item</button> 
+                         
+                    
+                        <script> 
+                            function addItem(l,c) { 
+                                var a = document.getElementById(l); 
+                                var candidate = document.getElementById(c);
+                                if(candidate.value!='') {
+                                    var li = document.createElement("li");
+                                    li.className="list-group-item"; 
+                                    li.setAttribute('id', candidate.value); 
+                                    li.appendChild(document.createTextNode(candidate.value));
+                                    
+                                    var button = document.createElement("button");
+                                    button.className="btn btn-danger";
+                                    button.innerHTML = "Del"; 
+                                    button.onclick=function(){
+                                        removeItem(l,li);    
+                                    }
+                                    li.appendChild(button);
+                                    
+                                    a.appendChild(li); 
+                                }
+                                
+                            } 
+                    
+                            // Creating a function to remove item from list 
+                            function removeItem(l,c) { 
+                    
+                                // Declaring a varible to get select element 
+                                var a = document.getElementById(l); 
+                                //var candidate = document.getElementById(c); 
+                                //var item = document.getElementById(candidate.value); 
+                                a.removeChild(c); 
+                            } 
+                        </script> 
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Add Items
+                    </div>
+                    <ul id="list2" class="list-group list-group-flush"></ul>
+                    <div class="card-body">
+                        <input type="text" id="candidate2" /> 
+                        <button onclick="addItem('list2','candidate2')" class="btn btn-success"> 
+                        Add item</button> 
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Add Items
+                    </div>
+                    <ul id="list3" class="list-group list-group-flush"></ul>
+                    <div class="card-body">
+                        <input type="text" id="candidate3" /> 
+                        <button onclick="addItem('list3','candidate3')" class="btn btn-success"> 
+                        Add item</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
